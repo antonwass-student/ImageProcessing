@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Emgu.CV;
 using Emgu.CV.Features2D;
+using Emgu.CV.Util;
 
 namespace ObjectIdentification
 {
@@ -12,9 +14,22 @@ namespace ObjectIdentification
     /// </summary>
     public class ObjectFeatures
     {
-        public ObjectFeatures(string imagePath)
+        private VectorOfKeyPoint _keyPoints;
+        private UMat _descriptors;
+
+        public ObjectFeatures(VectorOfKeyPoint keyPoints, UMat descriptors)
         {
-            //calculate features and descriptors in image using EMGUCV
+            this._descriptors = descriptors;
+            this._keyPoints = keyPoints;
+        }
+
+
+        public string getDescriptorString()
+        {
+            string desc = "";
+            foreach (byte b in _descriptors.Bytes)
+                desc += b.ToString();
+            return desc;
         }
     }
 }

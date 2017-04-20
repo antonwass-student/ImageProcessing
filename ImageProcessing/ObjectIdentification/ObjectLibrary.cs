@@ -33,6 +33,7 @@ namespace ObjectIdentification
             else
             {
                 wo = new WorldObject(objectId);
+                _worldObjects.Add(objectId, wo);
             }
 
             wo.AddView(imagePath, perspective);
@@ -47,6 +48,18 @@ namespace ObjectIdentification
         public void Search(string imagePath, int objectId, ObjectView.Perspective perspective)
         {
             throw new NotImplementedException();
+        }
+
+
+        public ObjectFeatures GetFeatures(int objectId, ObjectView.Perspective perspective)
+        {
+            WorldObject wo = null;
+            if (_worldObjects.TryGetValue(objectId, out wo))
+            {
+                return wo.getFeatures(perspective);
+            }
+
+            return null;
         }
     }
 }

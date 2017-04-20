@@ -24,5 +24,15 @@ namespace ObjectIdentification
         {
             _views[(int)perspective] = new ObjectView(perspective, imagePath);
         }
+
+        /// <summary>
+        /// TEMP
+        /// </summary>
+        /// <returns></returns>
+        public ObjectFeatures getFeatures(ObjectView.Perspective perspective)
+        {
+            return _views[(int)perspective].GetFeatures();
+        }
+
     }
 }

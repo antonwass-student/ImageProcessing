@@ -14,14 +14,13 @@ namespace ObjectIdentification
     {
         private Perspective _imagePerspective;
         private string _imagePath;
-        private ObjectFeatures _descriptor;
+        private ObjectFeatures _features;
 
         public ObjectView(Perspective perspective, string imagePath)
         {
             this._imagePerspective = perspective;
             this._imagePath = imagePath;
-
-            this._descriptor = new ObjectFeatures(imagePath);
+            this._features = FeatureDetector.DetectFeatures_Brisk(imagePath);
         }
 
         public enum Perspective
@@ -32,6 +31,11 @@ namespace ObjectIdentification
             Left = 3,
             Front = 4,
             Back = 5
+        }
+
+        public ObjectFeatures GetFeatures()
+        {
+            return _features;
         }
     }
 }
