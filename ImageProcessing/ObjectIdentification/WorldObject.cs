@@ -9,11 +9,13 @@ namespace ObjectIdentification
     public class WorldObject
     {
         private int _id;
-        private readonly ObjectView[] _views = new ObjectView[6];
+        public ObjectView[] Views { get; }
 
         public WorldObject(int objectId)
         {
             _id = objectId;
+
+            Views = new ObjectView[6];
         }
 
         /// <summary>
@@ -22,17 +24,19 @@ namespace ObjectIdentification
         /// <param name="perspective"></param>
         public void AddView(string imagePath, ObjectView.Perspective perspective)
         {
-            _views[(int)perspective] = new ObjectView(perspective, imagePath);
+            Views[(int)perspective] = new ObjectView(perspective, imagePath);
         }
 
         /// <summary>
         /// TEMP
         /// </summary>
         /// <returns></returns>
-        public ObjectFeatures getFeatures(ObjectView.Perspective perspective)
+        public ObjectFeatures GetFeatures(ObjectView.Perspective perspective)
         {
-            return _views[(int)perspective].GetFeatures();
+            return Views[(int) perspective].Features;
         }
+
+
 
     }
 }

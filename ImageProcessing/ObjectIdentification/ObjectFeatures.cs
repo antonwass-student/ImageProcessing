@@ -14,22 +14,19 @@ namespace ObjectIdentification
     /// </summary>
     public class ObjectFeatures
     {
-        private VectorOfKeyPoint _keyPoints;
-        private UMat _descriptors;
+        public VectorOfKeyPoint KeyPoints { get; }
+        public UMat Descriptors { get; }
 
         public ObjectFeatures(VectorOfKeyPoint keyPoints, UMat descriptors)
         {
-            this._descriptors = descriptors;
-            this._keyPoints = keyPoints;
+            this.Descriptors = descriptors;
+            this.KeyPoints = keyPoints;
         }
 
 
-        public string getDescriptorString()
+        public string GetDescriptorString()
         {
-            string desc = "";
-            foreach (byte b in _descriptors.Bytes)
-                desc += b.ToString();
-            return desc;
+            return Encoding.UTF8.GetString(Descriptors.Bytes);
         }
     }
 }

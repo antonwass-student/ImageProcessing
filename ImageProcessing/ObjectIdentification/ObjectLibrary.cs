@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,10 +45,16 @@ namespace ObjectIdentification
         /// </summary>
         /// <param name="imagePath">The image to search</param>
         /// <param name="objectId"></param>
-        /// <param name="perspective"></param>
-        public void Search(string imagePath, int objectId, ObjectView.Perspective perspective)
+        public List<ImageSearchResult> Search(string imagePath, int objectId)
         {
-            throw new NotImplementedException();
+            WorldObject wo;
+            if (_worldObjects.TryGetValue(objectId, out wo))
+            {
+                return FeatureDetector.SearchImageForObjects(wo, imagePath);
+            }
+
+            throw new NoSuchObjectException("Object with ID " + objectId + " does not exist in the library.");
+            
         }
 
 
@@ -56,10 +63,20 @@ namespace ObjectIdentification
             WorldObject wo = null;
             if (_worldObjects.TryGetValue(objectId, out wo))
             {
-                return wo.getFeatures(perspective);
+                return wo.GetFeatures(perspective);
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// No object with that ID was found in the library.
+        /// </summary>
+        public class NoSuchObjectException : Exception
+        {
+            public NoSuchObjectException(string message) : base(message)
+            {
+            }
         }
     }
 }

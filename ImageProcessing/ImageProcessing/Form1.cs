@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace ImageProcessing
 {
     public partial class Form1 : Form
     {
-        private string loadedImage;
+        private string _loadedImage;
+        public ObjectLibrary ObjectLibrary;
 
         public Form1()
         {
@@ -24,6 +26,7 @@ namespace ImageProcessing
             comboBox1.DataSource = perspectives;
             comboBox1.Refresh();
 
+            ObjectLibrary = new ObjectLibrary();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +35,7 @@ namespace ImageProcessing
             {
                 if(dlg.ShowDialog() == DialogResult.OK)
                 {
-                    loadedImage = dlg.FileName;
+                    _loadedImage = dlg.FileName;
                     Image img = Image.FromFile(dlg.FileName);
 
                     pictureBox1.Image = img;
@@ -44,15 +47,16 @@ namespace ImageProcessing
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ObjectLibrary lib = new ObjectLibrary();
+            
 
             int id = Convert.ToInt32(textBox1.Text);
             ObjectView.Perspective perspective = (ObjectView.Perspective) comboBox1.SelectedItem;
 
-            lib.Train(id, loadedImage, perspective);
+            ObjectLibrary.Train(id, _loadedImage, perspective);
 
-            richTextBox1.Text = lib.GetFeatures(id, perspective).getDescriptorString();
-
+            richTextBox1.Text = ObjectLibrary.GetFeatures(id, perspective).GetDescriptorString();
+            richTextBox1.Invalidate();
+            Debug.WriteLine("Done");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +76,26 @@ namespace ImageProcessing
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(textBox1.Text);
+            List<ImageSearchResult> result = ObjectLibrary.Search(_loadedImage, id);
+
+            Bitmap newBitmap = new Bitmap(pictureBox1.Image);
+
+            Graphics g = Graphics.FromImage(newBitmap);
+
+            foreach (ImageSearchResult match in result)
+            {
+                g.DrawImage(match.Homography.Bitmap, new Point(0,0));
+            }
+
+            pictureBox2.Image = newBitmap;
+            pictureBox1.Invalidate();
+
+            Debug.WriteLine("Search complete");
         }
     }
 }
