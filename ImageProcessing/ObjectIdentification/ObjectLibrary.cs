@@ -12,11 +12,17 @@ namespace ObjectIdentification
     /// </summary>
     public class ObjectLibrary
     {
-        private Dictionary<int, WorldObject> _worldObjects;
+        private int _Counter = 0;
+        public Dictionary<int, WorldObject> WorldObjects { get; }
 
         public ObjectLibrary()
         {
-            _worldObjects = new Dictionary<int, WorldObject>();
+            WorldObjects = new Dictionary<int, WorldObject>();
+        }
+
+        public void CreateEmptyObject()
+        {
+            WorldObjects.Add(_Counter, new WorldObject(_Counter++));
         }
 
 
@@ -30,11 +36,11 @@ namespace ObjectIdentification
         {
             WorldObject wo;
 
-            if (_worldObjects.TryGetValue(objectId, out wo)) { }
+            if (WorldObjects.TryGetValue(objectId, out wo)) { }
             else
             {
                 wo = new WorldObject(objectId);
-                _worldObjects.Add(objectId, wo);
+                WorldObjects.Add(objectId, wo);
             }
 
             wo.AddView(imagePath, perspective);
@@ -48,7 +54,7 @@ namespace ObjectIdentification
         public List<ImageSearchResult> Search(string imagePath, int objectId)
         {
             WorldObject wo;
-            if (_worldObjects.TryGetValue(objectId, out wo))
+            if (WorldObjects.TryGetValue(objectId, out wo))
             {
                 return FeatureDetector.SearchImageForObjects(wo, imagePath);
             }
@@ -61,7 +67,7 @@ namespace ObjectIdentification
         public ObjectFeatures GetFeatures(int objectId, ObjectView.Perspective perspective)
         {
             WorldObject wo = null;
-            if (_worldObjects.TryGetValue(objectId, out wo))
+            if (WorldObjects.TryGetValue(objectId, out wo))
             {
                 return wo.GetFeatures(perspective);
             }
