@@ -43,7 +43,7 @@ namespace ObjectIdentification
 
                     Debug.WriteLine("Computation finished!");
 
-                    return new ObjectFeatures(modelKeyPoints, descriptors);
+                    return new ObjectFeatures(modelKeyPoints, descriptors, modelImage);
                 }
             }
             catch (Exception e)

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV;
+using Emgu.CV.Util;
 using ObjectIdentification;
 
 
@@ -227,28 +229,42 @@ namespace ImageProcessing
             foreach (ImageSearchResult match in result)
             {
                 //g.DrawImage(match.Homography.Bitmap, new Point(0,0));
+                Point[] toDraw = perspectiveTransform(match);
+
+                g.DrawPolygon(Pens.Red, toDraw);
             }
 
-            pictureBox2.Image = newBitmap;
+            pictureBox1.Image = newBitmap;
             pictureBox1.Invalidate();
 
             Debug.WriteLine("Search complete");
         }
 
+        /// <summary>
+        /// TODO: Move to other project.
+        /// </summary>
+        /// <param name="match"></param>
+        /// <returns></returns>
+        private Point[] perspectiveTransform(ImageSearchResult match)
+        {
+            
+            Rectangle rect = new Rectangle(Point.Empty, match.MatchingView.Features.Image.Size);
+            PointF[] pts = new PointF[]
+            {
+                new PointF(rect.Left, rect.Bottom),
+                new PointF(rect.Right, rect.Bottom),
+                new PointF(rect.Right, rect.Top),
+                new PointF(rect.Left, rect.Top)    
+            };
+
+            pts = CvInvoke.PerspectiveTransform(pts, match.Homography);
+
+            return Array.ConvertAll<PointF, Point>(pts, Point.Round);
+        }
+
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
-            using (OpenFileDialog dlg = new OpenFileDialog())
-            {
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    _imageTop = dlg.FileName;
-                    Image img = Image.FromFile(dlg.FileName);
 
-                    pictureBox2.Image = img;
-
-                    pictureBox2.Invalidate();
-                }
-            }
         }
     }
 }
