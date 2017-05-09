@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing", "ImageProcessing\ImageProcessing.csproj", "{BD541CDB-AD9B-41E1-A7F1-536534E6FBE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectIdentification", "ObjectIdentification\ObjectIdentification.csproj", "{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectIdentificationService", "ObjectIdentificationService\ObjectIdentificationService.csproj", "{689E7C0B-6798-4945-BBBA-D41C92449394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationProtocol", "CommunicationProtocol\CommunicationProtocol.csproj", "{9053498E-E7A1-415E-A4E7-2B7AE6046B36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentificationClient", "IdentificationClient\IdentificationClient.csproj", "{7C006FCC-B8BF-4A67-B1FA-D9C6B2B3BA9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloLensSimulator", "HoloLensSimulator\HoloLensSimulator.csproj", "{E4704D3D-CE33-4B3D-A4CE-4ED75F6366AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689E7C0B-6798-4945-BBBA-D41C92449394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689E7C0B-6798-4945-BBBA-D41C92449394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689E7C0B-6798-4945-BBBA-D41C92449394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689E7C0B-6798-4945-BBBA-D41C92449394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9053498E-E7A1-415E-A4E7-2B7AE6046B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9053498E-E7A1-415E-A4E7-2B7AE6046B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9053498E-E7A1-415E-A4E7-2B7AE6046B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9053498E-E7A1-415E-A4E7-2B7AE6046B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C006FCC-B8BF-4A67-B1FA-D9C6B2B3BA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C006FCC-B8BF-4A67-B1FA-D9C6B2B3BA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C006FCC-B8BF-4A67-B1FA-D9C6B2B3BA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C006FCC-B8BF-4A67-B1FA-D9C6B2B3BA9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4704D3D-CE33-4B3D-A4CE-4ED75F6366AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4704D3D-CE33-4B3D-A4CE-4ED75F6366AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4704D3D-CE33-4B3D-A4CE-4ED75F6366AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4704D3D-CE33-4B3D-A4CE-4ED75F6366AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
