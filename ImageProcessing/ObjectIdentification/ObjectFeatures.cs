@@ -16,11 +16,13 @@ namespace ObjectIdentification
     {
         public VectorOfKeyPoint KeyPoints { get; }
         public UMat Descriptors { get; }
+        public Mat Image { get; }
 
-        public ObjectFeatures(VectorOfKeyPoint keyPoints, UMat descriptors)
+        public ObjectFeatures(VectorOfKeyPoint keyPoints, UMat descriptors, Mat image)
         {
             this.Descriptors = descriptors;
             this.KeyPoints = keyPoints;
+            this.Image = image;
         }
 
 
