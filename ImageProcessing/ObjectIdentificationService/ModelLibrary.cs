@@ -23,7 +23,7 @@ namespace ObjectIdentificationService
             {
                 Bitmap img = new Bitmap(Image.FromFile(filePath));
 
-                string fileName = filePath.Split('/').Last();
+                string fileName = filePath.Split('/').Last().Split('_').First();
 
                 List<ObjectFeatures> listOfFeatures;
 
@@ -34,7 +34,7 @@ namespace ObjectIdentificationService
                 else
                 {
                     listOfFeatures = new List<ObjectFeatures>();
-                    models.Add( fileName.Split('.').First(),listOfFeatures);
+                    models.Add( fileName.Split('.').First(), listOfFeatures);
                 }
                     
 
