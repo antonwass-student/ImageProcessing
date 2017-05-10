@@ -228,10 +228,35 @@ namespace ImageProcessing
 
             foreach (ImageSearchResult match in result)
             {
-                //g.DrawImage(match.Homography.Bitmap, new Point(0,0));
-                Point[] toDraw = perspectiveTransform(match);
+                Pen myPen = new Pen(Color.Green, 5);
 
-                g.DrawPolygon(Pens.Red, toDraw);
+                if (match.Homography != null)
+                {
+                    Point[] toDraw = perspectiveTransform(match);
+                    g.DrawPolygon(myPen, toDraw);
+                }
+                
+                var d = match.Matches;
+
+                var m = match.Mask;
+
+                for (int i = 0; i < d.Size; i++)
+                {
+
+                    if (m.GetData(new[] {i})[0] == 0)
+                        continue;
+
+                    var x = match.ObservedFeatures.KeyPoints[d[i][0].QueryIdx].Point.X;
+                    var y = match.ObservedFeatures.KeyPoints[d[i][0].QueryIdx].Point.Y;
+
+                    
+
+                    g.DrawEllipse(Pens.Red,x-10, y-10, 20, 20);
+                    
+
+                }
+
+                
             }
 
             pictureBox1.Image = newBitmap;

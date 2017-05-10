@@ -60,6 +60,8 @@ namespace ObjectIdentification
             double uniquenessThreshold = 0.8;
             double hessianThresh = 300;
 
+            int nonZeroThreshold = 10;
+
             ObjectFeatures targetImageFeatures = DetectFeatures_Brisk(imageToSearch);
      
             Mat mask;
@@ -86,17 +88,17 @@ namespace ObjectIdentification
 
                 int nonZeroCount = CvInvoke.CountNonZero(mask);
 
-                if (nonZeroCount >= 4)
+                if (nonZeroCount >= nonZeroThreshold)
                 {
                     nonZeroCount = Features2DToolbox.VoteForSizeAndOrientation(view.Features.KeyPoints,
                         targetImageFeatures.KeyPoints, matches, mask, 1.5, 20);
 
-                    if (nonZeroCount >= 4)
+                    if (nonZeroCount >= nonZeroThreshold)
                     {
                         Mat homography = Features2DToolbox.GetHomographyMatrixFromMatchedFeatures(view.Features.KeyPoints,
                             targetImageFeatures.KeyPoints, matches, mask, 2);
 
-                        searchResults.Add(new ImageSearchResult(view, homography, matches));
+                        searchResults.Add(new ImageSearchResult(view, homography, matches, targetImageFeatures, mask));
                     }
                 }
             }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing", "ImagePro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectIdentification", "ObjectIdentification\ObjectIdentification.csproj", "{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseEstimation", "PoseEstimation\PoseEstimation.csproj", "{9440630D-57E3-4BA2-BC78-6B22CD0825B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F916ABA-4108-4DA5-9BA0-0BB3234790EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

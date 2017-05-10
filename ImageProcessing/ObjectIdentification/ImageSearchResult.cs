@@ -15,15 +15,19 @@ namespace ObjectIdentification
     /// </summary>
     public class ImageSearchResult
     {
-        public ObjectView MatchingView { get; set; }
-        public Mat Homography { get; set;}
-        public VectorOfVectorOfDMatch Matches { get; set; }
+        public ObjectView MatchingView { get;}
+        public Mat Homography { get;}
+        public VectorOfVectorOfDMatch Matches { get;}
+        public ObjectFeatures ObservedFeatures { get; }
+        public Mat Mask { get; }
 
-        public ImageSearchResult(ObjectView view, Mat homography, VectorOfVectorOfDMatch matches)
+        public ImageSearchResult(ObjectView view, Mat homography, VectorOfVectorOfDMatch matches, ObjectFeatures observedFeatures, Mat mask)
         {
             this.MatchingView = view;
             this.Homography = homography;
             this.Matches = matches;
+            this.ObservedFeatures = observedFeatures;
+            this.Mask = mask;
         }
     }
 }
