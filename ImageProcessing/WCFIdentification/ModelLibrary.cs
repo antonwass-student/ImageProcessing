@@ -19,7 +19,7 @@ namespace ObjectIdentificationService
         {
             Console.WriteLine("Loading models...");
             int filesLoaded = 0;
-            foreach(string filePath in Directory.GetFiles("models/"))
+            foreach(string filePath in Directory.GetFiles(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "bin/models/"))
             {
                 Bitmap img = new Bitmap(Image.FromFile(filePath));
 

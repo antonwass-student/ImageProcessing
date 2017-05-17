@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseEstimation", "PoseEstim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFIdentification", "WCFIdentification\WCFIdentification.csproj", "{4B74BB11-B547-44A1-9E80-9D5A739F4978}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestService\TestService.csproj", "{AAD83117-C9E5-47B2-92B5-D84853EB7031}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD83117-C9E5-47B2-92B5-D84853EB7031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD83117-C9E5-47B2-92B5-D84853EB7031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD83117-C9E5-47B2-92B5-D84853EB7031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD83117-C9E5-47B2-92B5-D84853EB7031}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

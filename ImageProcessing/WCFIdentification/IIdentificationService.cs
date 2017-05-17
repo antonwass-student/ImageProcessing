@@ -9,6 +9,7 @@ using System.Text;
 namespace WCFIdentification
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IIdentificationService" in both code and config file together.
+    
     [ServiceContract]
     public interface IIdentificationService
     {
@@ -16,9 +17,9 @@ namespace WCFIdentification
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Identify")]
-        string Identify(string requestJson);
+        IdentificationService.IdentificationResponse Identify(IdentificationService.IdentificationRequest request);
 
         
 
