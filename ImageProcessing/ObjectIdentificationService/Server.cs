@@ -13,6 +13,7 @@ namespace ObjectIdentificationService
 {
     public class Server
     {
+        /*
         private bool IsRunning = false;
         public void Start(ModelLibrary library)
         {
@@ -36,6 +37,10 @@ namespace ObjectIdentificationService
                 {
                     Console.WriteLine("Waiting for messages...");
                     IdentificationRequest request = (IdentificationRequest)formatter.Deserialize(stream);
+
+                    //TODO: list of bytes (?????) into an image
+
+                    
                     
                     string identifiedObject = library.IdentifyObject(request.Image);
 
@@ -53,5 +58,8 @@ namespace ObjectIdentificationService
         {
             IsRunning = false;
         }
+
+    */
     }
+
 }

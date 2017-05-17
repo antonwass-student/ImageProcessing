@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing", "ImageProcessing\ImageProcessing.csproj", "{BD541CDB-AD9B-41E1-A7F1-536534E6FBE8}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloLensSimulator", "HoloLensSimulator\HoloLensSimulator.csproj", "{E4704D3D-CE33-4B3D-A4CE-4ED75F6366AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseEstimation", "PoseEstimation\PoseEstimation.csproj", "{9440630D-57E3-4BA2-BC78-6B22CD0825B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFIdentification", "WCFIdentification\WCFIdentification.csproj", "{4B74BB11-B547-44A1-9E80-9D5A739F4978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9440630D-57E3-4BA2-BC78-6B22CD0825B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B74BB11-B547-44A1-9E80-9D5A739F4978}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

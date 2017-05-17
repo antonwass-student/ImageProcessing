@@ -11,6 +11,6 @@ namespace CommunicationProtocol
     public class IdentificationRequest
     {
         public DateTime Timestamp { get; set; }
-        public Bitmap Image { get; set; }
+        public List<byte> Image { get; set; }
     }
 }
